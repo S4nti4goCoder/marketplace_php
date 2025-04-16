@@ -24,8 +24,31 @@ if (count($routesArray) == 0) {
         isset($_SERVER["REQUEST_METHOD"]) &&
         $_SERVER["REQUEST_METHOD"] == "GET"
     ) {
-        $response = new GetController();
-        $response -> getData($routesArray[1]);
+
+        /*=============================================
+		Peticiones GET con filtro
+		=============================================*/
+        if (isset($_GET["linkTo"]) && isset($_GET["equalTo"])) {
+
+            $response = new GetController();
+            $response->getFilterData(explode("?", $routesArray[1])[0], $_GET["linkTo"], $_GET["equalTo"]);
+
+            /*=============================================
+		    Peticiones GET entre tablas relacionadas sin filtro
+		    =============================================*/
+        } else if (isset($_GET["rel"]) && isset($_GET["type"]) && explode("?", $routesArray[1])[0] == "relations") {
+            $response = new GetController();
+            $response->getRelData($_GET["rel"], $_GET["type"]);
+        } else {
+
+            /*=============================================
+		    Peticiones GET sin filtro
+		    =============================================*/
+
+
+            $response = new GetController();
+            $response->getData($routesArray[1]);
+        }
     }
 
     /*=============================================
