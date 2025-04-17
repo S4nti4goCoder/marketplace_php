@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 16-04-2025 a las 06:06:45
+-- Tiempo de generación: 17-04-2025 a las 11:20:19
 -- Versión del servidor: 10.4.32-MariaDB
 -- Versión de PHP: 8.2.12
 
@@ -61,8 +61,8 @@ CREATE TABLE `disputes` (
   `id_dispute` int(11) NOT NULL,
   `id_order_dispute` int(11) DEFAULT NULL,
   `stage_dispute` text DEFAULT NULL,
-  `transmitter_dispute` int(11) DEFAULT NULL,
-  `receiver_dispute` int(11) DEFAULT NULL,
+  `id_user_dispute` int(11) DEFAULT NULL,
+  `id_store_dispute` int(11) DEFAULT NULL,
   `content_dispute` text DEFAULT NULL,
   `answer_dispute` text DEFAULT NULL,
   `date_created_dispute` date DEFAULT NULL,
@@ -73,7 +73,7 @@ CREATE TABLE `disputes` (
 -- Volcado de datos para la tabla `disputes`
 --
 
-INSERT INTO `disputes` (`id_dispute`, `id_order_dispute`, `stage_dispute`, `transmitter_dispute`, `receiver_dispute`, `content_dispute`, `answer_dispute`, `date_created_dispute`, `date_updated_dispute`) VALUES
+INSERT INTO `disputes` (`id_dispute`, `id_order_dispute`, `stage_dispute`, `id_user_dispute`, `id_store_dispute`, `content_dispute`, `answer_dispute`, `date_created_dispute`, `date_updated_dispute`) VALUES
 (1, 1, 'reviewed', 1, 1, 'Lorem ipsum', 'Lorem Ipsum', '2025-04-15', '2025-04-16 04:03:34');
 
 -- --------------------------------------------------------
@@ -85,8 +85,8 @@ INSERT INTO `disputes` (`id_dispute`, `id_order_dispute`, `stage_dispute`, `tran
 CREATE TABLE `messages` (
   `id_message` int(11) NOT NULL,
   `id_product_message` int(11) DEFAULT NULL,
-  `transmitter_message` int(11) DEFAULT NULL,
-  `receiver_message` int(11) DEFAULT NULL,
+  `id_user_message` int(11) DEFAULT NULL,
+  `id_store_message` int(11) DEFAULT NULL,
   `content_message` text DEFAULT NULL,
   `answer_message` text DEFAULT NULL,
   `date_created_message` date DEFAULT NULL,
@@ -97,7 +97,7 @@ CREATE TABLE `messages` (
 -- Volcado de datos para la tabla `messages`
 --
 
-INSERT INTO `messages` (`id_message`, `id_product_message`, `transmitter_message`, `receiver_message`, `content_message`, `answer_message`, `date_created_message`, `date_updated_message`) VALUES
+INSERT INTO `messages` (`id_message`, `id_product_message`, `id_user_message`, `id_store_message`, `content_message`, `answer_message`, `date_created_message`, `date_updated_message`) VALUES
 (1, 1, 1, 1, 'Lorem ipsum', 'Lorem Ipsum', '2025-04-15', '2025-04-16 04:03:42');
 
 -- --------------------------------------------------------

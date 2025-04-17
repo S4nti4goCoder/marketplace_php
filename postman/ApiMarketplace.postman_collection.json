@@ -1,0 +1,207 @@
+{
+	"info": {
+		"_postman_id": "82cf8674-46ab-4fd4-9a58-85069aa18c0d",
+		"name": "ApiMarketplace",
+		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json",
+		"_exporter_id": "38044668"
+	},
+	"item": [
+		{
+			"name": "GET sin Filtro",
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://api.marketplace.com/categories?orderBy=name_category&orderMode=ASC",
+					"protocol": "http",
+					"host": [
+						"api",
+						"marketplace",
+						"com"
+					],
+					"path": [
+						"categories"
+					],
+					"query": [
+						{
+							"key": "orderBy",
+							"value": "name_category"
+						},
+						{
+							"key": "orderMode",
+							"value": "ASC"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GET con Filtro",
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://api.marketplace.com/subcategories?linkTo=id_category_subcategory&equalTo=1&orderBy=id_subcategory&orderMode=DESC",
+					"protocol": "http",
+					"host": [
+						"api",
+						"marketplace",
+						"com"
+					],
+					"path": [
+						"subcategories"
+					],
+					"query": [
+						{
+							"key": "linkTo",
+							"value": "id_category_subcategory"
+						},
+						{
+							"key": "equalTo",
+							"value": "1"
+						},
+						{
+							"key": "orderBy",
+							"value": "id_subcategory"
+						},
+						{
+							"key": "orderMode",
+							"value": "DESC"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GET tablas relacionadas sin Filtro",
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://api.marketplace.com/relations?rel=subcategories,categories&type=subcategory,category&orderBy=id_subcategory&orderMode=DESC",
+					"protocol": "http",
+					"host": [
+						"api",
+						"marketplace",
+						"com"
+					],
+					"path": [
+						"relations"
+					],
+					"query": [
+						{
+							"key": "rel",
+							"value": "subcategories,categories"
+						},
+						{
+							"key": "type",
+							"value": "subcategory,category"
+						},
+						{
+							"key": "orderBy",
+							"value": "id_subcategory"
+						},
+						{
+							"key": "orderMode",
+							"value": "DESC"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GET tablas relacionadas con Filtro",
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://api.marketplace.com/relations?rel=products,categories,subcategories&type=product,category,subcategory&linkTo=id_category_product&equalTo=1&orderBy=stock_product&orderMode=ASC",
+					"protocol": "http",
+					"host": [
+						"api",
+						"marketplace",
+						"com"
+					],
+					"path": [
+						"relations"
+					],
+					"query": [
+						{
+							"key": "rel",
+							"value": "products,categories,subcategories"
+						},
+						{
+							"key": "type",
+							"value": "product,category,subcategory"
+						},
+						{
+							"key": "linkTo",
+							"value": "id_category_product"
+						},
+						{
+							"key": "equalTo",
+							"value": "1"
+						},
+						{
+							"key": "orderBy",
+							"value": "stock_product"
+						},
+						{
+							"key": "orderMode",
+							"value": "ASC"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GET para el Buscador",
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://api.marketplace.com/products?linkTo=name_product&search=portable",
+					"protocol": "http",
+					"host": [
+						"api",
+						"marketplace",
+						"com"
+					],
+					"path": [
+						"products"
+					],
+					"query": [
+						{
+							"key": "linkTo",
+							"value": "name_product"
+						},
+						{
+							"key": "search",
+							"value": "portable"
+						}
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
