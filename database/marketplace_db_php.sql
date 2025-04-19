@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 17-04-2025 a las 11:20:19
+-- Tiempo de generación: 19-04-2025 a las 10:31:50
 -- Versión del servidor: 10.4.32-MariaDB
 -- Versión de PHP: 8.2.12
 
@@ -378,6 +378,7 @@ CREATE TABLE `users` (
   `phone_user` text DEFAULT NULL,
   `address_user` text DEFAULT NULL,
   `token_user` text DEFAULT NULL,
+  `token_exp_user` text DEFAULT NULL,
   `method_user` text DEFAULT NULL,
   `wishlist_user` text DEFAULT NULL,
   `date_created_user` date DEFAULT NULL,
@@ -388,8 +389,9 @@ CREATE TABLE `users` (
 -- Volcado de datos para la tabla `users`
 --
 
-INSERT INTO `users` (`id_user`, `rol_user`, `picture_user`, `displayname_user`, `username_user`, `password_user`, `email_user`, `country_user`, `city_user`, `phone_user`, `address_user`, `token_user`, `method_user`, `wishlist_user`, `date_created_user`, `date_updated_user`) VALUES
-(1, 'default', 'user-1.jpg', 'Gilbert Maxiliun', 'maximiluin', NULL, 'gopro@gmail.com', 'United States', 'Miami', '+1888-888-54-56', '17 Queen St, Melbourne', NULL, 'direct', '[\"marshall-kilburn-portable-wireless\",\"xbox-one-wireless-controller-black-color\",\"aroma-rice-cooker-2\"]', '2025-04-15', '2025-04-16 00:17:49');
+INSERT INTO `users` (`id_user`, `rol_user`, `picture_user`, `displayname_user`, `username_user`, `password_user`, `email_user`, `country_user`, `city_user`, `phone_user`, `address_user`, `token_user`, `token_exp_user`, `method_user`, `wishlist_user`, `date_created_user`, `date_updated_user`) VALUES
+(1, 'default', 'user-1.jpg', 'Gilbert Maxiliun', 'maximiluin', NULL, 'gopro@gmail.com', 'United States', 'Miami', '+1888-888-54-56', '17 Queen St, Melbourne', NULL, NULL, 'direct', '[\"marshall-kilburn-portable-wireless\",\"xbox-one-wireless-controller-black-color\",\"aroma-rice-cooker-2\"]', '2025-04-15', '2025-04-16 00:17:49'),
+(4, 'default', NULL, 'Santiago Quintero', 'santiagoquintero', '$2a$07$azybxcags23425sdg23sdedZJfTmOi4mS62A1kRYnZ7qtrok7GnE.', 'santiago@gmail.com', NULL, NULL, NULL, NULL, 'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE3NDUwNTA5MjIsImV4cCI6MTc0NTEzNzMyMiwiZGF0YSI6eyJpZCI6NCwiZW1haWwiOiJzYW50aWFnb0BnbWFpbC5jb20ifX0.Bwuj2OvWpdsce3eE0PixZyiCFswZcj4Ym4WZUbhkSW4', '1745137322', NULL, NULL, '2025-04-19', '2025-04-19 08:22:02');
 
 --
 -- Índices para tablas volcadas
@@ -457,7 +459,7 @@ ALTER TABLE `users`
 -- AUTO_INCREMENT de la tabla `categories`
 --
 ALTER TABLE `categories`
-  MODIFY `id_category` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+  MODIFY `id_category` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
 
 --
 -- AUTO_INCREMENT de la tabla `disputes`
@@ -505,7 +507,7 @@ ALTER TABLE `subcategories`
 -- AUTO_INCREMENT de la tabla `users`
 --
 ALTER TABLE `users`
-  MODIFY `id_user` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id_user` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

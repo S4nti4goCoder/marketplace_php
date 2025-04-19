@@ -1,26 +1,16 @@
 <?php
 
-class PutController
+class DeleteController
 {
     /*=============================================
-	Peticiones GET con filtro
+	Peticion DELETE para borrar datos
 	=============================================*/
-    static public function getFilterData($table, $linkTo, $equalTo, $orderBy, $orderMode, $startAt, $endAt)
+    static public function deleteData($table, $id, $nameId)
     {
-        $response = GetModel::getFilterData($table, $linkTo, $equalTo, $orderBy, $orderMode, $startAt, $endAt);
+        $response = deleteModel::deleteData($table, $id, $nameId);
 
-        return $response;
-    }
-
-    /*=============================================
-	Peticion PUT para editar datos
-	=============================================*/
-    static public function putData($table, $data, $id, $nameId)
-    {
-        $response = PutModel::putData($table, $data, $id, $nameId);
-
-        $return = new PutController();
-        $return->fncResponse($response, "putData");
+        $return = new DeleteController();
+        $return->fncResponse($response, "deleteData");
     }
 
     /*=============================================

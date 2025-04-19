@@ -17,7 +17,6 @@ class PutModel
         }
 
         $set = substr($set, 0, -1);
-
         $stmt = Connection::connect()->prepare("UPDATE $table SET $set WHERE $nameId = :$nameId");
 
         foreach ($data as $key => $value) {
