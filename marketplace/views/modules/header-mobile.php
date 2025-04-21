@@ -70,7 +70,7 @@
 
                                     <li class="current-menu-item menu-item-has-children">
 
-                                        <a href="<?php echo $value->url_category ?>">
+                                        <a href="<?php echo $path . $value->url_category ?>">
                                             <?php echo $value->name_category ?>
                                         </a>
 
@@ -81,8 +81,8 @@
                                         <ul class="sub-menu" style="display: none;">
 
                                             <!--=====================================
-                                            Traer las subcategorías
-                                            ======================================-->
+                                        Traer las subcategorías
+                                        ======================================-->
 
                                             <?php
 
@@ -98,7 +98,7 @@
                                             <?php foreach ($menuSubcategories as $key => $value): ?>
 
                                                 <li class="current-menu-item ">
-                                                    <a href="<?php echo $value->url_subcategory ?>"><?php echo $value->name_subcategory ?></a>
+                                                    <a href="<?php echo $path . $value->url_subcategory ?>"><?php echo $value->name_subcategory ?></a>
                                                 </li>
 
                                             <?php endforeach ?>
@@ -118,7 +118,7 @@
 
             </div><!-- End menu-->
 
-            <a class="ps-logo pl-3 pl-sm-5" href="index.html">
+            <a class="ps-logo pl-3 pl-sm-5" href="/">
                 <img src="img/template/logo_light.png" class="pt-3" alt="">
             </a>
 
@@ -229,10 +229,10 @@
 
     <div class="ps-search--mobile">
 
-        <form class="ps-form--search-mobile" action="index.html" method="get">
+        <form class="ps-form--search-mobile">
             <div class="form-group--nest">
-                <input class="form-control" type="text" placeholder="Search something...">
-                <button><i class="icon-magnifier"></i></button>
+                <input class="form-control inputSearch" type="text" placeholder="Search something...">
+                <button type="button" class="btnSearch" path="<?php echo $path ?>"><i class="icon-magnifier"></i></button>
             </div>
         </form>
 

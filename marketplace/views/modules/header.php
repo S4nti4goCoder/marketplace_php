@@ -3,6 +3,7 @@
 /*=============================================
 Traer él listado de categorías
 =============================================*/
+
 $url = CurlController::api() . "categories";
 $method = "GET";
 $fields = array();
@@ -10,20 +11,24 @@ $header = array();
 
 $menuCategories = CurlController::request($url, $method, $fields, $header)->results;
 
+
 ?>
+
 
 <header class="header header--standard header--market-place-4" data-sticky="true">
 
     <!--=====================================
-	Header TOP
-	======================================-->
+    Header TOP
+    ======================================-->
+
     <div class="header__top">
 
         <div class="container">
 
             <!--=====================================
-			Social 
-			======================================-->
+            Social 
+            ======================================-->
+
             <div class="header__left">
                 <ul class="d-flex justify-content-center">
                     <li><a href="#" target="_blank"><i class="fab fa-facebook-f mr-4"></i></a></li>
@@ -34,8 +39,9 @@ $menuCategories = CurlController::request($url, $method, $fields, $header)->resu
             </div>
 
             <!--=====================================
-			Contact & lenguage 
-			======================================-->
+            Contact & lenguage 
+            ======================================-->
+
             <div class="header__right">
                 <ul class="header__top-links">
                     <li><a href="#">Sell on MarketPlace</a></li>
@@ -56,8 +62,9 @@ $menuCategories = CurlController::request($url, $method, $fields, $header)->resu
     </div><!-- Header Top -->
 
     <!--=====================================
-	Header Content
-	======================================-->
+    Header Content
+    ======================================-->
+
     <div class="header__content">
 
         <div class="container">
@@ -65,15 +72,17 @@ $menuCategories = CurlController::request($url, $method, $fields, $header)->resu
             <div class="header__content-left">
 
                 <!--=====================================
-				Logo
-				======================================-->
+                Logo
+                ======================================-->
+
                 <a class="ps-logo" href="/">
                     <img src="img/template/logo_light.png" alt="">
                 </a>
 
                 <!--=====================================
-				Menú
-				======================================-->
+                Menú
+                ======================================-->
+
                 <div class="menu--product-categories">
 
                     <div class="menu__toggle">
@@ -87,9 +96,10 @@ $menuCategories = CurlController::request($url, $method, $fields, $header)->resu
 
                             <?php foreach ($menuCategories as $key => $value): ?>
 
+
                                 <li class="menu-item-has-children has-mega-menu">
 
-                                    <a href="<?php echo $value->url_category ?>">
+                                    <a href="<?php echo $path . $value->url_category ?>">
                                         <i class="<?php echo $value->icon_category ?>"></i>
                                         <?php echo $value->name_category ?>
                                     </a>
@@ -97,20 +107,27 @@ $menuCategories = CurlController::request($url, $method, $fields, $header)->resu
                                     <div class="mega-menu">
 
                                         <!--=====================================
-                                        Traer el listado de títulos
-                                        ======================================-->
+                                    Traer el listado de títulos
+                                    ======================================-->
+
                                         <?php
+
                                         $title_list = json_decode($value->title_list_category);
+
                                         ?>
 
                                         <?php foreach ($title_list as $key => $value): ?>
+
                                             <div class="mega-menu__column">
+
                                                 <h4><?php echo $value ?><span class="sub-toggle"></span></h4>
+
                                                 <ul class="mega-menu__list">
 
                                                     <!--=====================================
-                                                    Traer las subcategorías
-                                                    ======================================-->
+                                            Traer las subcategorías
+                                            ======================================-->
+
                                                     <?php
 
                                                     $url = CurlController::api() . "subcategories?linkTo=title_list_subcategory&equalTo=" . rawurlencode($value);
@@ -125,7 +142,7 @@ $menuCategories = CurlController::request($url, $method, $fields, $header)->resu
                                                     <?php foreach ($menuSubcategories as $key => $value): ?>
 
                                                         <li>
-                                                            <a href="<?php echo $value->url_subcategory ?>"><?php echo $value->name_subcategory ?></a>
+                                                            <a href="<?php echo $path . $value->url_subcategory ?>"><?php echo $value->name_subcategory ?></a>
                                                         </li>
 
                                                     <?php endforeach ?>
@@ -149,13 +166,19 @@ $menuCategories = CurlController::request($url, $method, $fields, $header)->resu
             </div><!-- End Header Content Left-->
 
             <!--=====================================
-			Search
-			======================================-->
+            Search
+            ======================================-->
+
             <div class="header__content-center">
-                <form class="ps-form--quick-search" action="index.html" method="get">
-                    <input class="form-control" type="text" placeholder="I'm shopping for...">
-                    <button>Search</button>
+
+                <form class="ps-form--quick-search">
+
+                    <input class="form-control inputSearch" type="text" placeholder="I'm shopping for...">
+
+                    <button type="button" class="btnSearch" path="<?php echo $path ?>">Search</button>
+
                 </form>
+
             </div>
 
             <div class="header__content-right">
@@ -163,15 +186,17 @@ $menuCategories = CurlController::request($url, $method, $fields, $header)->resu
                 <div class="header__actions">
 
                     <!--=====================================
-					Wishlist
-					======================================-->
+                    Wishlist
+                    ======================================-->
+
                     <a class="header__extra" href="#">
                         <i class="icon-heart"></i><span><i>0</i></span>
                     </a>
 
                     <!--=====================================
-					Cart
-					======================================-->
+                    Cart
+                    ======================================-->
+
                     <div class="ps-cart--mini">
 
                         <a class="header__extra" href="#">
@@ -237,8 +262,9 @@ $menuCategories = CurlController::request($url, $method, $fields, $header)->resu
                     </div>
 
                     <!--=====================================
-					Login and Register
-					======================================-->
+                    Login and Register
+                    ======================================-->
+
                     <div class="ps-block--user-header">
                         <div class="ps-block__left">
                             <i class="icon-user"></i>

@@ -113,8 +113,9 @@
                     <strong><?php echo $value->name_category ?></strong>
 
                     <!--=====================================
-                    Traer las subcategorías
-                    ======================================-->
+                Traer las subcategorías
+                ======================================-->
+
                     <?php
 
                     $url = CurlController::api() . "subcategories?linkTo=id_category_subcategory&equalTo=" . rawurlencode($value->id_category);
@@ -127,7 +128,9 @@
                     ?>
 
                     <?php foreach ($menuSubcategories as $key => $value): ?>
-                        <a href="<?php echo $value->url_subcategory ?>"><?php echo $value->name_subcategory ?></a>
+
+                        <a href="<?php echo $path . $value->url_subcategory ?>"><?php echo $value->name_subcategory ?></a>
+
                     <?php endforeach ?>
 
                 </p>

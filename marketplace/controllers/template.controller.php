@@ -9,4 +9,12 @@ class TemplateController
     {
         include "views/template.php";
     }
+
+    /*=============================================
+	Ruta Principal o Dominio del sitio
+	=============================================*/
+    static public function path()
+    {
+        return "http://marketplace.com/";
+    }
 }

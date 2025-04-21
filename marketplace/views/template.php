@@ -1,6 +1,11 @@
 <?php
 
 /*=============================================
+Traer el dominio principal
+=============================================*/
+$path = TemplateController::path();
+
+/*=============================================
 Traer el total de productos
 =============================================*/
 $url = CurlController::api() . "products";
@@ -9,6 +14,14 @@ $fields = array();
 $header = array();
 
 $totalProducts = CurlController::request($url, $method, $fields, $header)->total;
+
+/*=============================================
+Capturar las rutas de la URL
+=============================================*/
+$routesArray = explode("/", $_SERVER['REQUEST_URI']);
+if (!empty(array_filter($routesArray)[1])) {
+    $urlParams = explode("&", array_filter($routesArray)[1]);
+}
 
 ?>
 
@@ -2628,7 +2641,7 @@ $totalProducts = CurlController::request($url, $method, $fields, $header)->total
 	Newletter
 	======================================-->
     <?php include "modules/newletter.php" ?>
-    
+
     <!--=====================================
 	Footer
 	======================================-->
