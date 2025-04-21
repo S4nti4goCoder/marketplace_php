@@ -153,11 +153,11 @@ $totalProducts = CurlController::request($url, $method, $fields, $header)->total
     Preload
     ======================================-->
 
-    <div id="loader-wrapper">
+    <!-- <div id="loader-wrapper">
         <img src="img/template/loader.jpg">
         <div class="loader-section section-left"></div>
         <div class="loader-section section-right"></div>
-    </div>
+    </div> -->
 
     <!--=====================================
 	Header Promotion
