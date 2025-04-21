@@ -5,8 +5,8 @@
         <div class="ps-footer__widgets">
 
             <!--=====================================
-				Contact us
-				======================================-->
+			Contact us
+			======================================-->
 
             <aside class="widget widget_footer widget_contact-us">
 
@@ -32,8 +32,8 @@
             </aside>
 
             <!--=====================================
-				Quick Links
-				======================================-->
+			Quick Links
+			======================================-->
 
             <aside class="widget widget_footer">
 
@@ -56,8 +56,8 @@
             </aside>
 
             <!--=====================================
-				Company
-				======================================-->
+			Company
+			======================================-->
 
             <aside class="widget widget_footer">
 
@@ -78,8 +78,8 @@
             </aside>
 
             <!--=====================================
-				Bussiness
-				======================================-->
+			Bussiness
+			======================================-->
 
             <aside class="widget widget_footer">
 
@@ -102,82 +102,43 @@
         </div>
 
         <!--=====================================
-			Categories Footer
-			======================================-->
+		Categories Footer
+		======================================-->
 
         <div class="ps-footer__links">
 
-            <p>
-                <strong>Consumer Electric:</strong>
-                <a href="#">Air Conditioners</a>
-                <a href="#">Audios &amp; Theaters</a>
-                <a href="#">Car Electronics</a>
-                <a href="#">Office Electronics</a>
-                <a href="#">TV Televisions</a>
-                <a href="#">Washing Machines</a>
-            </p>
+            <?php foreach ($menuCategories as $key => $value): ?>
 
-            <p>
-                <strong>Clothing &amp; Apparel:</strong>
-                <a href="#">Printers</a>
-                <a href="#">Projectors</a>
-                <a href="#">Scanners</a>
-                <a href="#">Store &amp; Business</a>
-                <a href="#">4K Ultra HD TVs</a>
-                <a href="#">LED TVs</a>
-                <a href="#">OLED TVs</a>
-            </p>
+                <p>
+                    <strong><?php echo $value->name_category ?></strong>
 
-            <p>
-                <strong>Home, Garden &amp; Kitchen:</strong>
-                <a href="#">Cookware</a>
-                <a href="#">Decoration</a>
-                <a href="#">Furniture</a>
-                <a href="#">Garden Tools</a>
-                <a href="#">Garden Equipments</a>
-                <a href="#">Powers And Hand Tools</a>
-                <a href="#">Utensil &amp; Gadget</a>
-            </p>
+                    <!--=====================================
+                    Traer las subcategorías
+                    ======================================-->
+                    <?php
 
-            <p>
-                <strong>Health &amp; Beauty:</strong>
-                <a href="#">Hair Care</a>
-                <a href="#">Decoration</a>
-                <a href="#">Hair Care</a>
-                <a href="#">Makeup</a>
-                <a href="#">Body Shower</a>
-                <a href="#">Skin Care</a>
-                <a href="#">Cologine</a>
-                <a href="#">Perfume</a>
-            </p>
+                    $url = CurlController::api() . "subcategories?linkTo=id_category_subcategory&equalTo=" . rawurlencode($value->id_category);
+                    $method = "GET";
+                    $fields = array();
+                    $header = array();
 
-            <p>
-                <strong>Jewelry &amp; Watches:</strong>
-                <a href="#">Necklace</a>
-                <a href="#">Pendant</a>
-                <a href="#">Diamond Ring</a>
-                <a href="#">Sliver Earing</a>
-                <a href="#">Leather Watcher</a>
-                <a href="#">Gucci</a>
-            </p>
+                    $menuSubcategories = CurlController::request($url, $method, $fields, $header)->results;
 
-            <p>
-                <strong>Computer &amp; Technologies:</strong>
-                <a href="#">Desktop PC</a>
-                <a href="#">Laptop</a>
-                <a href="#">Smartphones</a>
-                <a href="#">Tablet</a>
-                <a href="#">Game Controller</a>
-                <a href="#">Audio &amp; Video</a>
-                <a href="#">Wireless Speaker</a>
-                <a href="#">Done</a>
-            </p>
+                    ?>
+
+                    <?php foreach ($menuSubcategories as $key => $value): ?>
+                        <a href="<?php echo $value->url_subcategory ?>"><?php echo $value->name_subcategory ?></a>
+                    <?php endforeach ?>
+
+                </p>
+
+            <?php endforeach ?>
 
         </div>
 
         <!--=====================================
-			CopyRight - Payment method Footer
-			======================================-->
+		CopyRight - Payment method Footer
+		======================================-->
 
         <div class="ps-footer__copyright">
 
