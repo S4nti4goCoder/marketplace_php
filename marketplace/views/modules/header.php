@@ -1,3 +1,17 @@
+<?php
+
+/*=============================================
+Traer él listado de categorías
+=============================================*/
+$url = CurlController::api() . "categories";
+$method = "GET";
+$fields = array();
+$header = array();
+
+$menuCategories = CurlController::request($url, $method, $fields, $header)->results;
+
+?>
+
 <header class="header header--standard header--market-place-4" data-sticky="true">
 
     <!--=====================================
@@ -53,7 +67,7 @@
                 <!--=====================================
 				Logo
 				======================================-->
-                <a class="ps-logo" href="index.html">
+                <a class="ps-logo" href="/">
                     <img src="img/template/logo_light.png" alt="">
                 </a>
 
@@ -68,108 +82,64 @@
                     </div>
 
                     <div class="menu__content">
+
                         <ul class="menu--dropdown">
-                            <li>
-                                <a href="#"><i class="icon-star"></i> Hot Promotions</a>
-                            </li>
-                            <li class="menu-item-has-children has-mega-menu">
-                                <a href="#"><i class="icon-laundry"></i> Consumer Electronic</a>
-                                <div class="mega-menu">
-                                    <div class="mega-menu__column">
-                                        <h4>Electronic<span class="sub-toggle"></span></h4>
-                                        <ul class="mega-menu__list">
-                                            <li><a href="#">Home Audio &amp; Theathers</a>
-                                            </li>
-                                            <li><a href="#">TV &amp; Videos</a>
-                                            </li>
-                                            <li><a href="#">Camera, Photos &amp; Videos</a>
-                                            </li>
-                                            <li><a href="#">Cellphones &amp; Accessories</a>
-                                            </li>
-                                            <li><a href="#">Headphones</a>
-                                            </li>
-                                            <li><a href="#">Videosgames</a>
-                                            </li>
-                                            <li><a href="#">Wireless Speakers</a>
-                                            </li>
-                                            <li><a href="#">Office Electronic</a>
-                                            </li>
-                                        </ul>
+
+                            <?php foreach ($menuCategories as $key => $value): ?>
+
+                                <li class="menu-item-has-children has-mega-menu">
+
+                                    <a href="<?php echo $value->url_category ?>">
+                                        <i class="<?php echo $value->icon_category ?>"></i>
+                                        <?php echo $value->name_category ?>
+                                    </a>
+
+                                    <div class="mega-menu">
+
+                                        <!--=====================================
+                                        Traer el listado de títulos
+                                        ======================================-->
+                                        <?php
+                                        $title_list = json_decode($value->title_list_category);
+                                        ?>
+
+                                        <?php foreach ($title_list as $key => $value): ?>
+                                            <div class="mega-menu__column">
+                                                <h4><?php echo $value ?><span class="sub-toggle"></span></h4>
+                                                <ul class="mega-menu__list">
+
+                                                    <!--=====================================
+                                                    Traer las subcategorías
+                                                    ======================================-->
+                                                    <?php
+
+                                                    $url = CurlController::api() . "subcategories?linkTo=title_list_subcategory&equalTo=" . rawurlencode($value);
+                                                    $method = "GET";
+                                                    $fields = array();
+                                                    $header = array();
+
+                                                    $menuSubcategories = CurlController::request($url, $method, $fields, $header)->results;
+
+                                                    ?>
+
+                                                    <?php foreach ($menuSubcategories as $key => $value): ?>
+
+                                                        <li>
+                                                            <a href="<?php echo $value->url_subcategory ?>"><?php echo $value->name_subcategory ?></a>
+                                                        </li>
+
+                                                    <?php endforeach ?>
+
+                                                </ul>
+                                            </div>
+
+                                        <?php endforeach ?>
+
                                     </div>
-                                    <div class="mega-menu__column">
-                                        <h4>Accessories &amp; Parts<span class="sub-toggle"></span></h4>
-                                        <ul class="mega-menu__list">
-                                            <li><a href="#">Digital Cables</a>
-                                            </li>
-                                            <li><a href="#">Audio &amp; Video Cables</a>
-                                            </li>
-                                            <li><a href="#">Batteries</a>
-                                            </li>
-                                        </ul>
-                                    </div>
-                                </div>
-                            </li>
-                            <li>
-                                <a href="#"><i class="icon-shirt"></i> Clothing &amp; Apparel</a>
-                            </li>
-                            <li>
-                                <a href="#"><i class="icon-lampshade"></i> Home, Garden &amp; Kitchen</a>
-                            </li>
-                            <li>
-                                <a href="#"><i class="icon-heart-pulse"></i> Health &amp; Beauty</a>
-                            </li>
-                            <li>
-                                <a href="#"><i class="icon-diamond2"></i> Yewelry &amp; Watches</a>
-                            </li>
-                            <li class="menu-item-has-children has-mega-menu">
-                                <a href="#"><i class="icon-desktop"></i> Computer &amp; Technology</a>
-                                <div class="mega-menu">
-                                    <div class="mega-menu__column">
-                                        <h4>Computer &amp; Technologies<span class="sub-toggle"></span></h4>
-                                        <ul class="mega-menu__list">
-                                            <li><a href="#">Computer &amp; Tablets</a>
-                                            </li>
-                                            <li><a href="#">Laptop</a>
-                                            </li>
-                                            <li><a href="#">Monitors</a>
-                                            </li>
-                                            <li><a href="#">Networking</a>
-                                            </li>
-                                            <li><a href="#">Drive &amp; Storages</a>
-                                            </li>
-                                            <li><a href="#">Computer Components</a>
-                                            </li>
-                                            <li><a href="#">Security &amp; Protection</a>
-                                            </li>
-                                            <li><a href="#">Gaming Laptop</a>
-                                            </li>
-                                            <li><a href="#">Accessories</a>
-                                            </li>
-                                        </ul>
-                                    </div>
-                                </div>
-                            </li>
-                            <li>
-                                <a href="#"><i class="icon-baby-bottle"></i> Babies &amp; Moms</a>
-                            </li>
-                            <li>
-                                <a href="#"><i class="icon-baseball"></i> Sport &amp; Outdoor</a>
-                            </li>
-                            <li>
-                                <a href="#"><i class="icon-smartphone"></i> Phones &amp; Accessories</a>
-                            </li>
-                            <li>
-                                <a href="#"><i class="icon-book2"></i> Books &amp; Office</a>
-                            </li>
-                            <li>
-                                <a href="#"><i class="icon-car-siren"></i> Cars &amp; Motocycles</a>
-                            </li>
-                            <li>
-                                <a href="#"><i class="icon-wrench"></i> Home Improments</a>
-                            </li>
-                            <li>
-                                <a href="#"><i class="icon-tag"></i> Vouchers &amp; Services</a>
-                            </li>
+                                </li>
+
+                            <?php endforeach ?>
+
                         </ul>
 
                     </div>
@@ -183,15 +153,6 @@
 			======================================-->
             <div class="header__content-center">
                 <form class="ps-form--quick-search" action="index.html" method="get">
-                    <div class="form-group--icon">
-                        <i class="icon-chevron-down"></i>
-                        <select class="form-control">
-                            <option value="1">All</option>
-                            <option value="1">Smartphone</option>
-                            <option value="1">Sounds</option>
-                            <option value="1">Technology toys</option>
-                        </select>
-                    </div>
                     <input class="form-control" type="text" placeholder="I'm shopping for...">
                     <button>Search</button>
                 </form>
