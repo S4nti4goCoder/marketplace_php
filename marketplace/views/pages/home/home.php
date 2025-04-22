@@ -1,146 +1,27 @@
 <!--=====================================
-    Home Content
-    ======================================-->
+Home Content
+======================================-->
 <div id="homepage-6">
 
     <!--=====================================
-    	Home Banner
-    	======================================-->
-
-    <div class="ps-home-banner">
-        <div class="ps-carousel--nav-inside owl-slider" data-owl-auto="true" data-owl-loop="true" data-owl-speed="5000" data-owl-gap="0" data-owl-nav="true" data-owl-dots="true" data-owl-item="1" data-owl-item-xs="1" data-owl-item-sm="1" data-owl-item-md="1" data-owl-item-lg="1" data-owl-duration="1000" data-owl-mousedrag="on" data-owl-animate-in="fadeIn" data-owl-animate-out="fadeOut">
-
-            <div class="ps-banner--market-4" data-background="img/slider/horizontal/1.jpg">
-                <img src="img/slider/horizontal/1.jpg" alt="">
-                <div class="ps-banner__content">
-                    <h4>Limit Edition</h4>
-                    <h3>HAPPY SUMMER <br />
-                        COMBO SUPER COOL <br />
-                        <p>UP TO <strong> 40%</strong></p>
-                    </h3>
-                    <a class="ps-btn" href="#">Shop Now</a>
-                </div>
-            </div>
-
-            <div class="ps-banner--market-4" data-background="img/slider/horizontal/2.jpg">
-                <img src="img/slider/horizontal/2.jpg" alt="">
-                <div class="ps-banner__content">
-                    <h4>Version 2018</h4>
-                    <h3>EXPERIENCE FEEL <br />
-                        GREATEST WITH VITURAL <br />
-                        <p>REALITY JUST <strong> $599</strong></p>
-                    </h3>
-                    <a class="ps-btn" href="#">Shop Now</a>
-                </div>
-            </div>
-
-            <div class="ps-banner--market-4" data-background="img/slider/horizontal/3.jpg">
-                <img src="img/slider/horizontal/3.jpg" alt="">
-                <div class="ps-banner__content">
-                    <h4>Mega Sale Nov 2019</h4>
-                    <h3>DOUBLE COMBO WITH <br />
-                        THE BODY SHOP <br />
-                        <p>Sale up to <strong> 50%</strong></p>
-                    </h3>
-                    <a class="ps-btn" href="#">Shop Now</a>
-                </div>
-            </div>
-
-            <div class="ps-banner--market-4" data-background="img/slider/horizontal/4.jpg">
-                <img src="img/slider/horizontal/4.jpg" alt="">
-                <div class="ps-banner__content">
-                    <h4>Mega Sale Nov 2017</h4>
-                    <h3>IKEA MINIMALIST <br />
-                        OTOMAN <br />
-                        <p>Discount <strong> 50% OFF</strong></p>
-                    </h3>
-                    <a class="ps-btn" href="#">Shop Now</a>
-                </div>
-            </div>
-
-        </div>
-
-    </div><!-- End Home Banner-->
+    Home Banner
+    ======================================-->
+    <?php include "modules/horizontal-slider.php" ?>
+    
 
     <!--=====================================
-    	Home Features
-    	======================================-->
-
-    <div class="ps-site-features">
-
-        <div class="container">
-
-            <div class="ps-block--site-features ps-block--site-features-2">
-
-                <div class="ps-block__item">
-                    <div class="ps-block__left"><i class="icon-rocket"></i></div>
-                    <div class="ps-block__right">
-                        <h4>Free Delivery</h4>
-                        <p>For all oders over $99</p>
-                    </div>
-                </div>
-
-                <div class="ps-block__item">
-                    <div class="ps-block__left"><i class="icon-sync"></i></div>
-                    <div class="ps-block__right">
-                        <h4>90 Days Return</h4>
-                        <p>If goods have problems</p>
-                    </div>
-                </div>
-
-                <div class="ps-block__item">
-                    <div class="ps-block__left"><i class="icon-credit-card"></i></div>
-                    <div class="ps-block__right">
-                        <h4>Secure Payment</h4>
-                        <p>100% secure payment</p>
-                    </div>
-                </div>
-
-                <div class="ps-block__item">
-                    <div class="ps-block__left"><i class="icon-bubbles"></i></div>
-                    <div class="ps-block__right">
-                        <h4>24/7 Support</h4>
-                        <p>Dedicated support</p>
-                    </div>
-                </div>
-
-            </div>
-
-        </div>
-
-    </div><!-- End Home Features-->
+    Home Features
+    ======================================-->
+    <?php include "modules/features.php" ?>
 
     <!--=====================================
-    	Home Promotions
-    	======================================-->
-
-    <div class="ps-promotions">
-
-        <div class="container">
-
-            <div class="row">
-
-                <div class="col-md-6 col-12 ">
-                    <a class="ps-collection" href="shop-default.html">
-                        <img src="img/banner/default/1.jpg" alt="">
-                    </a>
-                </div>
-
-                <div class="col-md-6 col-12 ">
-                    <a class="ps-collection" href="shop-default.html">
-                        <img src="img/banner/default/2.jpg" alt="">
-                    </a>
-                </div>
-
-            </div>
-
-        </div>
-
-    </div><!-- End Home Promotions-->
+    Home Promotions
+    ======================================-->
+    <?php include "modules/default-banner.php" ?>
 
     <!--=====================================
-    	Home Deal Hot Today
-    	======================================-->
+    Home Deal Hot Today
+    ======================================-->
 
     <div class="ps-deal-hot">
 
@@ -149,8 +30,8 @@
             <div class="row">
 
                 <!--=====================================
-					Column Deal Hot
-    				======================================-->
+				Column Deal Hot
+    			======================================-->
 
                 <div class="col-xl-9 col-12 ">
 
